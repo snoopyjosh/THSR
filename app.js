@@ -1,6 +1,5 @@
 import mapping from './data.js';
 
-// register service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js');
@@ -12,12 +11,12 @@ const $out = document.getElementById('out');
 const $clr = document.getElementById('clr');
 const $tbody = document.querySelector('#table tbody');
 
-function hex2(str) {
-  return (str || '').trim().toUpperCase().replace(/[^0-9A-F]/g, '').slice(0,2);
+function hex4(str) {
+  return (str || '').trim().toUpperCase().replace(/[^0-9A-F]/g, '').slice(0,4);
 }
 
 function lookup(key) {
-  if (!key || key.length !== 2) {
+  if (!key || key.length !== 4) {
     $out.innerHTML = '—';
     return;
   }
@@ -30,7 +29,7 @@ function lookup(key) {
 }
 
 $in.addEventListener('input', () => {
-  $in.value = hex2($in.value);
+  $in.value = hex4($in.value);
   lookup($in.value);
 });
 
@@ -40,7 +39,6 @@ $clr.addEventListener('click', () => {
   lookup('');
 });
 
-// render table
 function renderTable() {
   const keys = Object.keys(mapping).sort((a,b)=>parseInt(a,16)-parseInt(b,16));
   $tbody.innerHTML = keys.map(k => `<tr><td>${k}</td><td>${mapping[k]}</td></tr>`).join('');
