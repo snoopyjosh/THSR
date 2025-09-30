@@ -22,13 +22,15 @@ function lookup4(key) {
   }
   const hi = key.slice(0,2);
   const lo = key.slice(2,4);
+  const mappedHi = mapping[hi];
   const mappedLo = mapping[lo];
-  if (mappedLo) {
-    $out.innerHTML = `<span class="ok">Answer: ${hi}${mappedLo}</span>`;
+  if (mappedHi && mappedLo) {
+    $out.innerHTML = `<span class="ok">Answer: ${mappedHi}${mappedLo}</span>`;
   } else {
-    $out.innerHTML = `<span class="bad">找不到低位對應（LO=${lo}）</span>`;
+    $out.innerHTML = `<span class="bad">找不到對應值 (HI=${hi}, LO=${lo})</span>`;
   }
 }
+
 
 $in.addEventListener('input', () => {
   $in.value = hex4($in.value);
