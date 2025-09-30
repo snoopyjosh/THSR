@@ -1,6 +1,6 @@
 {
-  "name": "Challenge Lookup",
-  "short_name": "Lookup",
+  "name": "Challenge Lookup 4-hex (動態低位映射)",
+  "short_name": "Lookup4-Dyn",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0b1220",
