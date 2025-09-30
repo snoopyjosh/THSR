@@ -1,4 +1,4 @@
-const CACHE = 'challenge-lookup-4hex-dyn-v1';
+const CACHE = 'challenge-lookup-4hex-doublemap-v1';
 const ASSETS = [
   './',
   './index.html',
