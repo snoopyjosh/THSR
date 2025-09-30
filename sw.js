@@ -1,4 +1,4 @@
-const CACHE = 'TSHR-NEXIS-v1';
+const CACHE = 'TSHR_NEXIS-v1';
 const ASSETS = [
   './',
   './index.html',
