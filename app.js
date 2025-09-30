@@ -27,10 +27,10 @@ function lookup4(key) {
   if (mappedHi && mappedLo) {
     $out.innerHTML = `<span class="ok">Answer: ${mappedHi}${mappedLo}</span>`;
   } else {
-    $out.innerHTML = `<span class="bad">找不到對應值 (HI=${hi}, LO=${lo})</span>`;
+    const miss = [!mappedHi ? `HI=${hi}` : null, !mappedLo ? `LO=${lo}` : null].filter(Boolean).join(', ');
+    $out.innerHTML = `<span class="bad">找不到對應值（${miss}）</span>`;
   }
 }
-
 
 $in.addEventListener('input', () => {
   $in.value = hex4($in.value);
@@ -43,7 +43,7 @@ $clr.addEventListener('click', () => {
   lookup4('');
 });
 
-// Render the 2-digit base table (low-byte mapping)
+// Render mapping table for reference
 function renderTable() {
   const keys = Object.keys(mapping).sort((a,b)=>parseInt(a,16)-parseInt(b,16));
   $tbody.innerHTML = keys.map(k => `<tr><td>${k}</td><td>${mapping[k]}</td></tr>`).join('');
