@@ -1,12 +1,12 @@
-const CACHE = 'challenge-lookup-4hex-doublemap-v1';
+const CACHE = 'TSHR-NEXIS-v1';
 const ASSETS = [
   './',
   './index.html',
   './app.js',
   './data.js',
   './manifest.webmanifest',
-  './icon-192.png',
-  './icon-512.png'
+  './icon-ne-192.png',
+  './icon-ne-512.png'
 ];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
